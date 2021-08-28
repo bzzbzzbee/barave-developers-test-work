@@ -221,7 +221,7 @@ data class GenerationVi(
 data class Ability(
 
 	@field:SerializedName("name")
-	val name: String? = null,
+	val name: String,
 
 	@field:SerializedName("url")
 	val url: String? = null

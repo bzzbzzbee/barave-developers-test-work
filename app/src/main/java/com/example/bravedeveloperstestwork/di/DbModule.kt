@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.example.bravedeveloperstestwork.POKEMON_DB_NAME
 import com.example.bravedeveloperstestwork.data.PokemonDb
 import com.example.bravedeveloperstestwork.data.PokemonDao
+import com.example.bravedeveloperstestwork.data.PokemonHolderDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -14,7 +15,7 @@ class DbModule {
 
     @Singleton
     @Provides
-    fun providePokemonDatabase(context: Context): PokemonDb {
+    fun providePokemonDatabase(@ApplicationContext context: Context): PokemonDb {
         return Room.databaseBuilder(
             context.applicationContext,
             PokemonDb::class.java,
@@ -30,7 +31,7 @@ class DbModule {
     }
 
     @Provides
-    fun providePokemonHolderDao(pokemonDataBase: PokemonDb) : PokemonDao {
+    fun providePokemonHolderDao(pokemonDataBase: PokemonDb) : PokemonHolderDao {
         return pokemonDataBase.pokemonHolderDao()
     }
 }

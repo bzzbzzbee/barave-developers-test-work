@@ -5,6 +5,7 @@ import androidx.room.RoomDatabase
 import com.example.bravedeveloperstestwork.data.entities.Ability
 import com.example.bravedeveloperstestwork.data.entities.Pokemon
 import com.example.bravedeveloperstestwork.data.entities.PokemonHolder
+import com.example.bravedeveloperstestwork.data.entities.PokemonWithAbilities
 import javax.inject.Singleton
 
 
@@ -17,5 +18,5 @@ import javax.inject.Singleton
 @Singleton
 abstract class PokemonDb : RoomDatabase() {
     abstract fun pokemonDao(): PokemonDao
-    abstract fun pokemonHolderDao(): PokemonDao
+    abstract fun pokemonHolderDao(): PokemonHolderDao
 }

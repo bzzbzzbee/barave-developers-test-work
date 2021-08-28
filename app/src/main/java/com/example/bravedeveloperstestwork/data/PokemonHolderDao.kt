@@ -9,9 +9,12 @@ interface PokemonHolderDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(pokemonHolder: PokemonHolder): Long
 
+    @Query("SELECT * FROM pokemon_holder WHERE name IN(:name)")
+    fun getPokemonByName(name: String): Flow<PokemonHolder>
+
     @Query("SELECT * FROM pokemon_holder")
     fun getAllHolders(): Flow<List<PokemonHolder>>
 
-    @Query("SELECT COUNT(name) FROM pokemon_holder")
-    fun countPokemons(): Flow<Long>
+    @Query("SELECT COUNT(id) FROM pokemon_holder")
+    fun countPokemons(): Long
 }

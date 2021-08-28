@@ -10,14 +10,15 @@ import com.example.bravedeveloperstestwork.POKEMON_TABLE_NAME
     indices = [Index(value = ["name"], unique = true)]
 )
 data class Pokemon(
-    @ColumnInfo(name = "pokemon_id")
-    @PrimaryKey
-    val id: Int,
     val name: String,
-    val weight: Int,
-    val height: Int,
+    val weight: Int?,
+    val height: Int?,
     val sprite: String?,
     @ColumnInfo(name = "is_favourite")
-    val isFavourite: Boolean
-)
+    var isFavourite: Boolean = false
+){
+    @ColumnInfo(name = "pokemon_id")
+    @PrimaryKey(autoGenerate = true)
+    var id = 0
+}
 
