@@ -7,4 +7,6 @@
     <string name="no_available_random">No available pokemons to show</string>
     <string name="no_available_search">No available pokemons to search</string>
     <string name="no_favourite">No favourite pokemons to show, you can add them via search or random pages</string>
+    <string name="enter_pokemon_name">Enter pokemon name</string>
+    <string name="pokemon_doesnt_exist">Such pokemon doesn\'t exist</string>
 </resources>

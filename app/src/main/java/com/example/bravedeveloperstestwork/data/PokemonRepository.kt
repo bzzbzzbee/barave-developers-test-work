@@ -23,7 +23,9 @@ class PokemonRepository @Inject constructor(
     private val pokemonHolderDao: PokemonHolderDao
 ) {
     val countPokemonHolders = runBlocking { pokemonHolderDao.countPokemons() }
-    val countFavouritePokemons = runBlocking {pokemonDao.countFavouritePokemons()}
+    val countFavouritePokemons = runBlocking { pokemonDao.countFavouritePokemons() }
+
+    fun getPokemonNames() = pokemonHolderDao.getAllHolders()
 
     suspend fun fetchPokemonHolders() {
         try {
@@ -62,11 +64,11 @@ class PokemonRepository @Inject constructor(
     }
 
     //TODO ASSERTIONS???
-    suspend fun getPokemon(name: String) {
-        val pokemonHolder = pokemonHolderDao.getPokemonByName(name).single()
+    suspend fun getPokemonByName(name: String) {
+        val pokemonHolder = pokemonHolderDao.getPokemonByName(name)
 
         try {
-            val response = pokemonApi.loadPokemon(pokemonHolder.url)
+            val response = pokemonApi.loadPokemon(pokemonHolder!!.url)
 
             if (response.isSuccessful) {
                 val pokemonResponse = response.body()
@@ -97,4 +99,6 @@ class PokemonRepository @Inject constructor(
             Log.e("Db populating ex: ", t.message.toString())
         }
     }
+
+    fun getPokemon(name: String) = runBlocking { pokemonHolderDao.getPokemonByName(name) }
 }

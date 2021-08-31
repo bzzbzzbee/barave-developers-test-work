@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.bravedeveloperstestwork.R
 import com.example.bravedeveloperstestwork.databinding.MenuScreenBinding
 import com.example.bravedeveloperstestwork.di.appComponent
@@ -42,7 +43,8 @@ class MenuFragment : Fragment() {
 
         binding.searchButton.setOnClickListener {
             if (isPokemonsFetched()) {
-                //TODO go to search fragment
+                val direction = MenuFragmentDirections.actionMenuFragmentToSearchFragment()
+                findNavController().navigate(direction)
             } else {
                 Toast.makeText(
                     requireContext(),

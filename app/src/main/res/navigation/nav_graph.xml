@@ -21,5 +21,13 @@
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.bravedeveloperstestwork.fragments.MenuFragment"
-        android:label="MenuFragment" />
+        android:label="MenuFragment" >
+        <action
+            android:id="@+id/action_menuFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.bravedeveloperstestwork.fragments.SearchFragment"
+        android:label="SearchFragment" />
 </navigation>
