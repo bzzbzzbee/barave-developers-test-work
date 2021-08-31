@@ -17,7 +17,6 @@ class RetrofitModule {
             .baseUrl("https://pokeapi.co/api/v2/pokemon/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
     }
 
     @Singleton

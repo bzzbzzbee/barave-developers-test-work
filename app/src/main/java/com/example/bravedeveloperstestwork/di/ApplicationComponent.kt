@@ -2,16 +2,29 @@ package com.example.bravedeveloperstestwork.di
 
 import android.content.Context
 import com.example.bravedeveloperstestwork.MainActivity
+import com.example.bravedeveloperstestwork.api.PokemonApi
+import com.example.bravedeveloperstestwork.data.PokemonDb
+import com.example.bravedeveloperstestwork.fragments.MenuFragment
+import com.example.bravedeveloperstestwork.fragments.SplashScreenFragment
+import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [RetrofitModule::class, DbModule::class, AppModule::class])
+@Component(modules = [AppModule::class])
 interface ApplicationComponent {
-    //TODO РАЗОБРАТЬСЯ С DI
-    //(applicationContext as MyApplication).appComponent.inject(this) to inject view Model foe e.g
+    val db: PokemonDb
+    val api: PokemonApi
+
+    fun inject(fragment: SplashScreenFragment)
+    fun inject(fragment: MenuFragment)
     fun inject(activity: MainActivity)
 
-    @ApplicationContext
-    fun getContext(): Context?
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun context(context: Context): Builder
+
+        fun build(): ApplicationComponent
+    }
 }

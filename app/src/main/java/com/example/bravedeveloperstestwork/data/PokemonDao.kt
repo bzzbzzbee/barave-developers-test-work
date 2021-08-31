@@ -1,5 +1,6 @@
 package com.example.bravedeveloperstestwork.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.bravedeveloperstestwork.data.entities.Ability
 import com.example.bravedeveloperstestwork.data.entities.Pokemon
@@ -19,9 +20,12 @@ interface PokemonDao {
 
     @Transaction
     @Query("SELECT * FROM pokemons ORDER BY name ASC")
-    fun getPokemons() : Flow<List<PokemonWithAbilities>>
+    fun getPokemons(): Flow<List<PokemonWithAbilities>>
 
     @Transaction
     @Query("SELECT * FROM pokemons WHERE is_favourite = 1 ORDER BY name ASC")
-    fun getFavouritePokemons() : Flow<List<PokemonWithAbilities>>
+    fun getFavouritePokemons(): Flow<List<PokemonWithAbilities>>
+
+    @Query("SELECT COUNT(pokemon_id) FROM pokemons WHERE is_favourite = 1")
+    suspend fun countFavouritePokemons(): Long
 }

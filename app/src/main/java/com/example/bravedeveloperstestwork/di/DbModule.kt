@@ -15,7 +15,7 @@ class DbModule {
 
     @Singleton
     @Provides
-    fun providePokemonDatabase(@ApplicationContext context: Context): PokemonDb {
+    fun providePokemonDatabase(context: Context): PokemonDb {
         return Room.databaseBuilder(
             context.applicationContext,
             PokemonDb::class.java,
@@ -25,11 +25,13 @@ class DbModule {
             .build()
     }
 
+    @Singleton
     @Provides
     fun providePokemonDao(pokemonDataBase: PokemonDb) : PokemonDao {
         return pokemonDataBase.pokemonDao()
     }
 
+    @Singleton
     @Provides
     fun providePokemonHolderDao(pokemonDataBase: PokemonDb) : PokemonHolderDao {
         return pokemonDataBase.pokemonHolderDao()

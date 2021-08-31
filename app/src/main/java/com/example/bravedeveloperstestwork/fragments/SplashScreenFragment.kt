@@ -27,9 +27,8 @@ class SplashScreenFragment : Fragment() {
         super.onStart()
         binding.motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
-                //val direction =
-                    //...
-                //findNavController().navigate(direction)
+                val direction = SplashScreenFragmentDirections.actionSplashScreenFragmentToMenuFragment()
+                findNavController().navigate(direction)
             }
 
             override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {}

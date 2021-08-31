@@ -1,4 +1,4 @@
-package com.example.bravedeveloperstestwork.data
+package com.example.bravedeveloperstestwork.data.pojo
 
 data class Root (
     var count: Int = 0,

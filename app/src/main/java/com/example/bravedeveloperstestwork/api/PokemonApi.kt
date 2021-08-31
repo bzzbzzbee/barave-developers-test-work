@@ -1,7 +1,7 @@
 package com.example.bravedeveloperstestwork.api
 
 
-import com.example.bravedeveloperstestwork.data.Root
+import com.example.bravedeveloperstestwork.data.pojo.Root
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Url
