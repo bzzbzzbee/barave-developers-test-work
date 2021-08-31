@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">BraveDevelopersTestWork</string>
+    <string name="search">Search</string>
+    <string name="random_pokemon">Random Pokemon</string>
+    <string name="pokemon_app">Pokemon\nApp</string>
+    <string name="favourite_pokemons">Favourite Pokemons</string>
+    <string name="no_available_random">No available pokemons to show</string>
+    <string name="no_available_search">No available pokemons to search</string>
+    <string name="no_favourite">No favourite pokemons to show, you can add them via search or random pages</string>
 </resources>

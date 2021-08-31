@@ -7,5 +7,19 @@
     <fragment
         android:id="@+id/splashScreenFragment"
         android:name="com.example.bravedeveloperstestwork.fragments.SplashScreenFragment"
-        android:label="SplashScreenFragment" />
+        android:label="SplashScreenFragment" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_menuFragment"
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.bravedeveloperstestwork.fragments.MenuFragment"
+        android:label="MenuFragment" />
 </navigation>
