@@ -14,7 +14,7 @@ interface PokemonHolderDao {
     suspend fun insert(pokemonHolders: List<PokemonHolder>)
 
     @Query("SELECT * FROM pokemon_holder WHERE name IN(:name)")
-    fun getPokemonByName(name: String): Flow<PokemonHolder>
+    suspend fun getPokemonByName(name: String): PokemonHolder?
 
     @Query("SELECT * FROM pokemon_holder")
     fun getAllHolders(): Flow<List<PokemonHolder>>

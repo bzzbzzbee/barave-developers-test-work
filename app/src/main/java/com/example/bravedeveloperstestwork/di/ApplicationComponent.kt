@@ -5,6 +5,7 @@ import com.example.bravedeveloperstestwork.MainActivity
 import com.example.bravedeveloperstestwork.api.PokemonApi
 import com.example.bravedeveloperstestwork.data.PokemonDb
 import com.example.bravedeveloperstestwork.fragments.MenuFragment
+import com.example.bravedeveloperstestwork.fragments.SearchFragment
 import com.example.bravedeveloperstestwork.fragments.SplashScreenFragment
 import dagger.BindsInstance
 import dagger.Component
@@ -19,6 +20,7 @@ interface ApplicationComponent {
     fun inject(fragment: SplashScreenFragment)
     fun inject(fragment: MenuFragment)
     fun inject(activity: MainActivity)
+    fun inject(fragment: SearchFragment)
 
     @Component.Builder
     interface Builder {
